@@ -3,16 +3,41 @@
   <body>
     <h1>Online Password Generator</h1>
 
+    <!-- Password character set checkboxes -->
+    <p>Choose your password's character set (all that apply)</p>
+    <input type="checkbox" id="lowercase" name="lowercase" value="lowercase" />
+    <label for="lowercase">Lowercase Letters (abcdefg...)</label>
+    <br />
+    <input type="checkbox" id="uppercase" name="uppercase" value="uppercase" />
+    <label for="uppercase">Uppercase Letters (ABCDEFG...)</label>
+    <br />
+    <input type="checkbox" id="digits" name="digits" value="digits" />
+    <label for="digits">Digits (0123456789)</label>
+    <br />
+    <input
+      type="checkbox"
+      id="specialCharacters"
+      name="specialCharacters"
+      value="specialCharacters"
+    />
+    <label for="specialCharacters"
+      >Special Characters (!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</label
+    >
+
+    <br />
+    <br />
+
+    <!-- Password length selection dropdown -->
     <label for="passwordLength"
       >Choose the character length for your password:
     </label>
     <select name="passwordLength" id="passwordLength">
       <option value="8">8</option>
-      <option value="8">16</option>
-      <option value="8">32</option>
-      <option value="8">64</option>
-      <option value="8">128</option>
-      <option value="8">256</option>
+      <option value="16">16</option>
+      <option value="32">32</option>
+      <option value="64">64</option>
+      <option value="128">128</option>
+      <option value="256">256</option>
     </select>
 
     <br />
