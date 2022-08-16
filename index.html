@@ -60,7 +60,24 @@
 
     <p id="generatedPassword"></p>
 
+    <button onclick="copyPassword()">Copy Password</button>
+
+    <p id="generatedPassword"></p>
+
     <script>
+      // A function for copying the password to the users clipboard
+      function copyPassword() {
+        var copyPassword =
+          document.getElementById("generatedPassword").innerHTML;
+
+        // Copy the password to the clipboard
+        navigator.clipboard.writeText(copyPassword);
+
+        // Alert the user that the password was copied
+        alert("Copied the password: " + copyPassword);
+      }
+
+      // Function for generating the password with the given constraints
       function generatePassword(
         passwordLength,
         lowercase,
