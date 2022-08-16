@@ -43,6 +43,27 @@
     <br />
     <br />
 
-    <button onclick="generatePassword()">Generate Password</button>
+    <button
+      onclick="generatePassword(document.getElementById('passwordLength').value)"
+    >
+      Generate Password
+    </button>
+
+    <p id="generatedPassword"></p>
+
+    <script>
+      function generatePassword(passwordLength) {
+        var password = "";
+        var lowercase = "abcdefghijklmnopqrstuvwxyz";
+        var charLength = lowercase.length;
+
+        // This for loop generates our password
+        for (var i = 0; i < passwordLength; i++) {
+          password += lowercase.charAt(Math.floor(Math.random() * charLength));
+        }
+
+        document.getElementById("generatedPassword").innerHTML = password;
+      }
+    </script>
   </body>
 </html>
