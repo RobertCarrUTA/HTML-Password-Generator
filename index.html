@@ -43,6 +43,59 @@
     <br />
     <br />
 
-    <button onclick="generatePassword()">Generate Password</button>
+    <!--
+        In the below onclick, we pass in our information from the previous selections into our function.
+        For the passwordLength selection, we can use .value because it gives us a string value to use.
+        However, we cannot use .value for our checkbox selections, we only want to see if they have been checked.
+     -->
+    <button
+      onclick="generatePassword(document.getElementById('passwordLength').value,
+        document.getElementById('lowercase'),
+        document.getElementById('uppercase'),
+        document.getElementById('digits'),
+        document.getElementById('specialCharacters'))"
+    >
+      Generate Password
+    </button>
+
+    <p id="generatedPassword"></p>
+
+    <script>
+      function generatePassword(
+        passwordLength,
+        lowercase,
+        uppercase,
+        digits,
+        specialCharacters
+      ) {
+        // We need to start the password and the charset as empty strings so we can fill them in later
+        var password = "";
+        var charset = "";
+
+        // This checks the user selection from the checkboxes and adds the selected character sets to charset
+        if (lowercase.checked) {
+          charset += "abcdefghijklmnopqrstuvwxyz";
+        }
+        if (uppercase.checked) {
+          charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        }
+        if (digits.checked) {
+          charset += "0123456789";
+        }
+        if (specialCharacters.checked) {
+          charset += "!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
+        }
+
+        // Get the length of the password charset string
+        var charLength = charset.length;
+
+        // This for loop generates our password
+        for (var i = 0; i < passwordLength; i++) {
+          password += charset.charAt(Math.floor(Math.random() * charLength));
+        }
+
+        document.getElementById("generatedPassword").innerHTML = password;
+      }
+    </script>
   </body>
 </html>
